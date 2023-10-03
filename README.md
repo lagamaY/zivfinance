@@ -2,6 +2,7 @@
 Zivfinance est un test de recrutement que j'ai passé. Vous avez les instructions ci-dessous. 
 
 Instructions
+INSTRUCTIONS (durée : 6H à compter de la réception du mail)
 
 Programmation
 1.	Créer la base de données en important le fichier sql contenu dans l'archive
