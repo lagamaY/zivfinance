@@ -38,6 +38,9 @@
         $(".supprimer-personne").on("click", function(e) {
             e.preventDefault();
             var id = $(this).attr("id-personne");
+            var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cette personne ?");
+
+           if(confirmation){
             $.ajax({
                 url: "/personnes/" + id,
                 data: {"_token": "{{ csrf_token() }}"},
@@ -45,8 +48,10 @@
                 success: function(result) {
                     // Suppression réussie, supprimez la ligne de la table et actualisez la liste
                     $("#personne-" + id).remove();
+
                 }
             });
+           }
         });
     </script>
 </body>
