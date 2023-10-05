@@ -27,7 +27,7 @@
             <td>{{ $personne->datenaissance }}</td>
             <td><img src="{{ asset('photos/' . $personne->photo) }}" width="100" height="100"></td>
             <td>
-                <button class="delete-btn" data-id="{{ $personne->id }}">Supprimer</button>
+                <a class="supprimer-personne delete-btn" id-personne="{{ $personne->id }}" >Supprimer</a>
             </td>
         </tr>
         @endforeach
@@ -35,7 +35,19 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        // ... Votre code JavaScript pour la suppression des personnes ...
+        $(".supprimer-personne").on("click", function(e) {
+            e.preventDefault();
+            var id = $(this).attr("id-personne");
+            $.ajax({
+                url: "/personnes/" + id,
+                data: {"_token": "{{ csrf_token() }}"},
+                type: 'get', // Utilisez la méthode HTTP DELETE pour supprimer la personne
+                success: function(result) {
+                    // Suppression réussie, supprimez la ligne de la table et actualisez la liste
+                    $("#personne-" + id).remove();
+                }
+            });
+        });
     </script>
 </body>
 </html>

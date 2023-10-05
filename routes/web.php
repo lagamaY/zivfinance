@@ -14,7 +14,7 @@ use App\Http\Controllers\PersonneController;
 Route::get('/', [PersonneController::class, 'index'])->name('personnes.index');
 Route::get('/personnes/create', [PersonneController::class, 'create'])->name('personnes.create');
 Route::post('/personnes', [PersonneController::class, 'store'])->name('personnes.store');
-Route::delete('/personnes/{id}', [PersonneController::class, 'destroy']);
+Route::get('/personnes/{id}', [PersonneController::class, 'destroy'])->name('personnes.delete');
 
 
 

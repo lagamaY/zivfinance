@@ -45,9 +45,10 @@ class PersonneController extends Controller
 
     public function destroy($id)
     {
+        
         $personne = Personne::findOrFail($id);
         $personne->delete();
 
-        return response()->json(['success' => true]);
+        // return redirect()->back();
     }
 }
